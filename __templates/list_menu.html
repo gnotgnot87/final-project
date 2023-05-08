@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<h1>Menu</h1>
+<!--Begin col-->
+<div class="column">
+    {% for category in categories %}
+    <fieldset>
+        <legend>{{category.title}}:</legend>
+        {% for item in category.items.all %}
+        {% include "menu_item_card.html" %}
+        {% endfor %}
+    </fieldset>
+    {% endfor %}
+</div>
+<!--End col-->
+{% endblock %}
